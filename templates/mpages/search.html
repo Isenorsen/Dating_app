@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+        <div class="card" style="max-width:100%; margin-top:4em; margin-right:8%; margin-left:8%; background-color:#f8f9fa">
+                <div class="card-body">
+                        
+                        <form action="{% url 'search' %}" method="POST" style="margin-top:2em; margin-right: 5em; margin-left:5em;">
+                            {% csrf_token %}
+                                <h3>Поиск анкеты</h3>
+                                        <div class="row">
+                                          <div class="col">
+                                            <input type="text" name="key" id="id_key" class="form-control" placeholder="Ключевые слова">
+                                          </div>
+                                          <div class="col">
+                                            <input type="text" name="city" id="id_city" class="form-control" placeholder="Город">
+                                          </div>
+                                        </div>
+                                        <div class="row" style="margin-top:1em;">
+                                        <div class="col">
+                                          <input type="text" name="age" id="id_age" class="form-control" placeholder="Возраст">
+                                        </div>
+                                        <div class="col">
+                                          <input type="text" name="name" id="id_name" class="form-control" placeholder="Имя">
+                                        </div>
+                                      </div>
+                </div>
+                  <button type="submit" class="btn btn-outline-secondary btn-lg" style="margin-top:1em;">Поиск</button>
+                  
+                </form>
+                </div>
+</div>
+{% endblock %}

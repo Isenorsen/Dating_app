@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lonely - Registration Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+        <span class="navbar-brand mb-0 h1">Lonely</span>
+        </div> 
+        </nav>
+    <div class="container">
+            <div class="card" style="max-width:100%; margin-top:2em; margin-right:8%; margin-left:8%; background-color:#f8f9fa">
+                    <div class="card-body">
+                            <form action="{% url 'registration' %}" method="POST" style="margin-top:2em; margin-right: 5em; margin-left:5em;">
+                                
+                                    <h3>Регистрация</h3>
+                                    {% include "partials/_alerts.html" %}
+                                    <div class="form-group">
+                                  <label for="exampleInputEmail1">Email</label>
+                                  {% csrf_token %}
+                                    <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Введите email">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="exampleInputPassword1">Имя</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Введите ваше имя">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Город</label>
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="Укажите ваш город">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Возраст</label>
+                                                <input type="text" class="form-control" id="age" name="age" placeholder="Укажите ваш возраст">
+                                                </div>
+                                        <div class="form-group">
+                                                <label for="exampleInputPassword1">Пароль</label>
+                                                <input type="password" class="form-control" id="password1" name="password1" placeholder="Придумайте пароль">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="exampleInputPassword1">Повторите пароль</label>
+                                                        <input type="password" class="form-control" id="password2" name="password2" placeholder="Повторите пароль">
+                                                        </div>
+                                                        
+                    </div>
+                      <button type="submit" class="btn btn-outline-secondary btn-lg" style="margin-top:1em;">Зарегистрироваться</button>
+                    </form>
+                    </div>
+                    <div class="card" style="max-width:100%; margin-right:8%; margin-left:8%; background-color:white; border:none;">
+                            <div style="text-align: center">
+                                    Есть аккаунт? <a href="{% url 'login' %}"> Войти!</a>
+                            </div>
+                        </div>
+                  </div>
+    </div>
+</body>
+</html>

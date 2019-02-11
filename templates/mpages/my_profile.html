@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container"> 
+        <div class="card" style="max-width:100%; margin-top:2em; margin-right:8%; margin-left:8%; background-color:#f8f9fa">
+                <div class="card-body">
+                    <div class="info">
+                                <div class="inner">
+                                        <h4 class="card-title" style="margin-bottom:0em;">Мой профиль</h4>  
+                        </div>
+                    </div>
+
+                  
+
+                    {% if profile_info %}
+                      {% for field in profile_info %}
+                    <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data" style="margin-top: 2em;">
+                            <div class="form-group">
+                              {% csrf_token %}
+                              <!-- Поле для ввода имени -->
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" for="id_name" id="inputGroup-sizing-default">Имя</span>
+                                  </div>
+                                  <input type="text" class="form-control" name="name" maxlength="200" required="" id="id_name" value="{{ field.name }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                </div>   
+                               <!-- Поле для ввода возраста -->
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" for="id_age" id="inputGroup-sizing-default">Возраст</span>
+                                    </div>
+                                    <input type="text" name="age" maxlength="200" id="id_age" class="form-control" value="{{ field.age }}">
+                                  </div>
+                                <!-- Поле для ввода города --> 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" for="id_age" id="inputGroup-sizing-default">Город</span>
+                                    </div>
+                                    <input type="text" name="city" maxlength="200" id="id_city" class="form-control" value="{{ field.city }}">
+                                  </div>
+                                <!-- Поле для ввода города --> 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" for="id_about" id="inputGroup-sizing-default">О себе:</span>
+                                    </div>
+                        
+                                    <input type="text" name="about" id="id_about" value="{{ field.about }}" class="form-control">
+                                  </div>  
+                                  <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Загрузить</span>
+                                      </div>
+                                      <div class="custom-file">
+                                        <input type="file" name="avatar" value="{% url 'index' %}media/{{ field.avatar }}" class="custom-file-input" id="id_avatar" accept="image/*" aria-describedby="inputGroupFileAddon01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Выберите файл</label>
+                                      </div>
+                                    </div>
+                                    <figure style="overflow:hidden; margin-left:1em; border-radius: 100%; width:10em; height:10em;">
+                                        <img src="{% url 'index' %}media/{{ field.avatar }}" style="display:block; max-width:16em; max-height:13em" alt="..." >
+                                   </figure>
+                                   
+                                    <button type="submit" class="btn btn-outline-success">Сохранить</button>
+                </form>
+                {% endfor %}
+              {% endif %}
+                </div>
+              </div>
+{% endblock %}

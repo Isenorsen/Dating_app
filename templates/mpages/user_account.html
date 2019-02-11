@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  {% if user %} 
+    {% for field in user %}
+        <div class="card" style="max-width:100%; margin-top:2em; margin-right:8%; margin-left:8%; background-color:#f8f9fa">
+                <div class="card-body">
+                    <div class="info">
+                                <div class="inner">
+                                        <h5 class="card-title" style="margin-bottom:0em;">{{ field.name }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted" style="margin-top:0em;">{{ field.city }}, {{ field.age }}</h6>
+                        </div>
+                    </div>
+                  <p class="card-text">{{ field.about }}</p>
+                  <div style="margin-left:0em;">
+                        <img src="{% url 'index' %}media/{{ field.avatar }}" style="max-width:30%" alt="..." class="img-thumbnail">
+                  </div>
+                  <button type="button" class="btn btn-outline-secondary btn-lg" style="margin-top:1em;">Написать</button>
+                </div>
+    {% endfor %}
+  {% endif %}
+              </div>
+{% endblock %}

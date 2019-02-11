@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+    {% load static %}
+    {% block content%}
+
+    <div class="container"> 
+            {% if queryset_forms %}
+            {% for item in queryset_forms %}
+    <div class="card" style="max-width:100%; margin-top:2em; margin-right:8%; margin-left:8%; background-color:#f8f9fa">
+            <div class="card-body">
+                <div class="info">
+                    <div class="row">
+                            <figure style="overflow:hidden; margin-left:1em; border-radius: 100%; width:10em; height:10em;">
+                                 <img src="media/{{ item.user.avatar }}" style="display:block; max-width:16em; max-height:13em" alt="..." >
+                            </figure>
+                            <div class="inner">
+                                <h5 class="card-title" style="margin-bottom:0em;"><a href="accounts/{{ item.user.user_account_id_id }}">{{ item.user }}</a>: {{ item.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="margin-top:0em;">{{ item.user.city }}, {{ item.user.age }}</h6>
+                            </div>
+                    </div>
+                </div>
+              <p class="card-text"> {{ item.text }} </p>
+              <div style="width:80%;">
+                      {% if item.image1 %}
+                            <img src="{{ item.image1 }}" style="max-width:30%" alt="..." class="img-thumbnail">
+                      {% endif %}
+                      {% if item.image2 %}
+                            <img src="{{ item.image1 }}" style="max-width:30%" alt="..." class="img-thumbnail">
+                      {% endif %}
+                      {% if item.image2 %}
+                            <img src="{{ item.image1 }}" style="max-width:30%" alt="..." class="img-thumbnail">
+                      {% endif %}
+              </div>
+              <button type="button" class="btn btn-outline-secondary btn-lg" style="margin-top:1em;">Написать</button>
+            </div>
+    </div>
+            <div class="pagination" style="max-width:100%; margin-top:2em; margin-bottom:2em; margin-right:8%; margin-left:8%;">
+                    <nav aria-label="Page navigation example">
+                    {% if form_page.has_previous %}
+                    <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="?page={{ form_page.previous_page_number }}">Предыдущая</a></li>
+                    {% endif %}
+                    {% if form_page.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ form_page.next_page_number }}">Следующая</a></li>
+                    {% endif %}
+                    </ul>
+                    </nav>
+            </div>
+
+    
+{% endfor %}
+{% endif %}
+
+
+    {% endblock %}

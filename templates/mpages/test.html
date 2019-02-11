@@ -1,0 +1,9 @@
+<form action="/accounts/profile" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<p><label for="id_name">Name:</label> <input type="text" name="name" maxlength="200" required="" id="id_name"></p>
+<p><label for="id_age">Age:</label> <input type="text" name="age" maxlength="200" id="id_age"></p>
+<p><label for="id_city">City:</label> <input type="text" name="city" maxlength="200" id="id_city"></p>
+<p><label for="id_about">About:</label> <textarea name="about" cols="40" rows="10" maxlength="2000" id="id_about"></textarea></p>
+<p><label for="id_avatar">Avatar:</label> <input type="file" name="avatar" accept="image/*" id="id_avatar"></p>
+        <input type="submit">
+</form>
