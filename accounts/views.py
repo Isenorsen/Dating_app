@@ -123,9 +123,4 @@ def my_profile(request):
     else:
         return redirect('login')        
 
-def user_mail(request):
-    name_nav = UserAccounts.objects.filter(user_account_id=request.user.id)
-    context = {
-        'name_nav': name_nav
-    }
-    return render(request, 'mpages/messages.html', context)
+

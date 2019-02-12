@@ -2,6 +2,7 @@
 <html>
 <head>
 {% load static %}
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Lonely</title>
@@ -13,8 +14,8 @@
 </head>
 <body>
     {% include 'partials/_navbar.html' %}
+    {% block extra_js %}{% endblock extra_js %}
     {% block content %}{% endblock %}
-    
     <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>

@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
-    'dating_forms.apps.DatingFormsConfig'
+    'dating_forms.apps.DatingFormsConfig',
+    'chat.apps.ChatConfig',
+    'django_private_chat',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +147,9 @@ MESSAGE_TAGS = {
     message_constants.WARNING: 'warning',
     message_constants.ERROR: 'danger',
 }
+
+# Django Private Chat settings
+
+CHAT_WS_SERVER_HOST = 'localhost'
+CHAT_WS_SERVER_PORT = 5002
+CHAT_WS_SERVER_PROTOCOL = 'ws'
