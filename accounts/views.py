@@ -89,6 +89,7 @@ def my_profile(request):
         else:
             form = AccountInfo(request.POST, request.FILES)
             if form.is_valid:
+                # TODO: нужно сделать чтобы фото грузилось в правильную директорию, сейчас сохраняется в media/media должно в media/
                 name = request.POST['name']
                 age = request.POST['age']
                 city = request.POST['city']
@@ -121,6 +122,6 @@ def my_profile(request):
                     messages.add_message(request, messages.INFO, 'Информация сохранена')
                     return redirect('profile')
     else:
-        return redirect('login')        
+        return redirect('login')
 
 
