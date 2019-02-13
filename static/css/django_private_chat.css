@@ -1,14 +1,11 @@
 .messages-container {
   height: 300px;
-  border: 1px solid #DDD;
   position: relative;
 }
 
 .messages {
   box-sizing: border-box;
   padding: 20px;
-  overflow: auto;
-  height: 300px;
 }
 
 .user-list {
@@ -26,13 +23,11 @@
 
 .user-list li {
   display: block;
-  color: orange;
   font-weight: bold;
 }
 
 .username {
   font-weight: bold;
-  color: orange;
 }
 
 .timestamp {
