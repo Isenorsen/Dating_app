@@ -153,3 +153,8 @@ MESSAGE_TAGS = {
 CHAT_WS_SERVER_HOST = 'localhost'
 CHAT_WS_SERVER_PORT = 5002
 CHAT_WS_SERVER_PROTOCOL = 'ws'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
